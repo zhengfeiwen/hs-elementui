@@ -1,0 +1,152 @@
+.hs-link{
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  position: relative;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 500;
+  .hs-link--inner{
+    font-size: 14px;
+    font-size: inherit;
+  }
+  &+.hs-link {
+    margin-left: 3px;
+  }
+  [class*=hs-icon-]+span {
+    margin-left: 5px;
+  }
+}
+
+.hs-link.hs-link--default{
+  color: #606266;
+  &:hover {
+    color: #409eff;
+  }
+}
+
+.hs-link.hs-link--primary{
+  color: #409eff;
+  &:hover {
+    color: #66b1ff;
+  }
+}
+
+.hs-link.hs-link--success{
+  color: #67c23a;
+  &:hover {
+    color: #85ce61;
+  }
+}
+
+.hs-link.hs-link--warning{
+  color: #e6a23c;
+  &:hover {
+    color: #ebb563;
+  }
+}
+
+.hs-link.hs-link--danger{
+  color: #f56c6c;
+  &:hover {
+    color: #f78989;
+  }
+}
+
+.hs-link.hs-link--info{
+  color: #909399;
+  &:hover {
+    color: #a6a9ad;
+  }
+}
+
+.hs-link.is-underline{
+  &:hover:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 0;
+    bottom: 0;
+    border-bottom: 1px solid #409eff;
+  }
+}
+
+.hs-link.hs-link--primary.is-underline:hover:after {
+  border-color: #409eff;
+}
+.hs-link.hs-link--success.is-underline:hover:after {
+  border-color: #67c23a;
+}
+.hs-link.hs-link--warning.is-underline:hover:after {
+  border-color: #e6a23c;
+}
+.hs-link.hs-link--danger.is-underline:hover:after {
+  border-color: #f56c6c;
+}
+.hs-link.hs-link--info.is-underline:hover:after {
+  border-color: #909399;
+}
+
+.hs-link.is-disabled {
+  cursor: not-allowed;
+}
+.hs-link.hs-link--default.is-disabled {
+  color: #c0c4cc;
+}
+.hs-link.hs-link--primary.is-disabled {
+  color: #a0cfff;
+}
+.hs-link.hs-link--success.is-disabled {
+  color: #b3e19d;
+}
+.hs-link.hs-link--warning.is-disabled {
+  color: #f3d19e;
+}
+.hs-link.hs-link--danger.is-disabled {
+  color: #fab6b6;
+}
+.hs-link.hs-link--info.is-disabled {
+  color: #c8c9cc;
+}
+
+.hs-link-extend{
+  text-align: center;
+  .hs-link-container{
+    text-align: left;
+  }
+  .hs-link-container{
+    width: 100%;
+    overflow: hidden;
+  }
+  a{
+    padding: 3px 0;
+    font-size: inherit;
+    color: #c0c4cc;
+    &:hover,&:focus{
+      color: #409eff;
+    }
+    i{
+      margin-left: 3px;
+      font-size: inherit;
+    }
+    span{
+      font-size: inherit;
+    }
+  }
+}
+
+.hs-icon--logo{
+  display: inline-block;
+  text-align: center;
+  svg{
+    display: block;
+    margin: 0 auto 5px;
+    font-size: inherit;
+  }
+}

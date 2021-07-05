@@ -1,0 +1,42 @@
+.hs-rate__icon,
+.hs-rate__item {
+  position: relative;
+  display: inline-block;
+}
+.hs-rate {
+  height: 20px;
+  line-height: 1;
+}
+.hs-rate:active,
+.hs-rate:focus {
+  outline-width: 0;
+}
+.hs-rate__item {
+  font-size: 0;
+  vertical-align: middle;
+}
+.hs-rate__icon {
+  font-size: 18px;
+  margin-right: 6px;
+  color: #c0c4cc;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.hs-rate__decimal,
+.hs-rate__icon .path2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.hs-rate__icon.hover {
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+}
+.hs-rate__decimal {
+  display: inline-block;
+  overflow: hidden;
+}
+.hs-rate__text {
+  font-size: 14px;
+  vertical-align: middle;
+}

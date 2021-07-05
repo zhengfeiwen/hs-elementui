@@ -1,0 +1,52 @@
+.hs-row{
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  &:before{
+    content: "";
+    display: table;
+  }
+  &:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.hs-row--flex {
+  display: flex
+}
+
+.hs-row--flex:after,.hs-row--flex:before {
+  display: none
+}
+
+.hs-row--flex.is-justify-center {
+  justify-content: center
+}
+.hs-row--flex.is-justify-start {
+  justify-content: flex-start
+}
+.hs-row--flex.is-justify-end {
+  justify-content: flex-end
+}
+
+.hs-row--flex.is-justify-space-between {
+  justify-content: space-between
+}
+
+.hs-row--flex.is-justify-space-around {
+  justify-content: space-around
+}
+
+.hs-row--flex.is-align-middle {
+  align-items: center
+}
+
+.hs-row--flex.is-align-top {
+  align-items: flex-start
+}
+
+.hs-row--flex.is-align-bottom {
+  align-items: flex-end
+}

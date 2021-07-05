@@ -1,0 +1,106 @@
+.hs-table{
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  flex: 1;
+  width: inherit;
+  max-width: 100%;
+  font-size: 14px;
+  color: #606266;
+  .action-block{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 6px;
+    .action-block-left{
+      display: flex;
+    }
+  }
+  .table-setting{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom: 6px;
+    button{
+      padding: 10px;
+      margin-left: 10px;
+    }
+    .hs-dropdown{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      button{
+        margin-right: 0;
+        padding: 7px 10px;
+        .hs-icon-s-grid{
+          font-size: 14px;
+        }
+      }
+      ul{
+        top: 30px;
+        left: auto;
+      }
+    }
+    .alert-bolck{
+      width: 100%;
+      display: block;
+      background-color: rgb(230, 247, 255);
+      padding: 7px 6px;
+      border-radius: 3px;
+      border: 1px solid rgb(186, 231, 255);
+      i{
+        margin: 0 6px;
+        color: rgb(14, 119, 209);
+        font-size: 16px;
+        opacity: 0.6;
+      }
+      a{
+        margin-left: 16px;
+        margin-top: -5px;
+      }
+    }
+  }
+  .block-pagination{
+    float: right;
+    margin-top: 10px;
+  }
+}
+.popper__arrow{
+  left: auto !important;
+  right: 18px !important;
+}
+.hs-dropdown-menu{
+  .column-container{
+    padding: 10px 10px 0 10px;
+    header{
+      margin-top: -10px;
+      margin-bottom: 10px;
+      span{
+        font-size: 17px;
+        font-weight: 500;
+      }
+    }
+    section{
+      .el-checkbox-group{
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid #d6d6d6;
+        margin-top: 8px;
+        padding-top: 8px;
+      }
+    }
+    footer{
+      display: flex;
+      flex-direction: row;
+      margin-top: 6px;
+      padding-top: 6px;
+      justify-content: space-around;
+      border-top: 1px solid #d6d6d6;
+    }
+  }
+}

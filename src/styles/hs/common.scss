@@ -1,0 +1,10 @@
+.text-overflow-line{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+}
+.text-overflow-block{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:wrap;
+}

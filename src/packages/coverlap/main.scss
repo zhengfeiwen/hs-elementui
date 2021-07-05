@@ -1,0 +1,43 @@
+$transition: .8s;
+.hs-coverlap-container{
+    height: 100%;
+    width: 100%;
+  .hs-coverlap_home{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 100%;
+    opacity: 0;
+    transition: $transition;
+    &.shown{
+      transition: $transition;
+      opacity: 1;
+      left: 0;
+    }
+  }
+  .hs-coverlap_page{
+    position: absolute;
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px;
+    z-index: 6666;
+    opacity: 0;
+    top: 0;
+    left: 100%;
+    transition: $transition;
+    background-color: #fff;
+    &.shown{
+      opacity: 1;
+      transition: $transition;
+      left: 0;
+    }
+    .hs-coverlap_header_back{
+      width: 100%;
+      height: 36px;
+      text-align: right;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #dedede;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+.hs-switch {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  font-size: 14px;
+  line-height: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+.hs-switch.is-disabled .hs-switch__core,
+.hs-switch.is-disabled .hs-switch__label {
+  cursor: not-allowed;
+}
+.hs-switch__core,
+.hs-switch__label {
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.hs-switch__label {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  height: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #303133;
+}
+.hs-switch__label.is-active {
+  color: #409eff;
+}
+.hs-switch__label--left {
+  margin-right: 10px;
+}
+.hs-switch__label--right {
+  margin-left: 10px;
+}
+.hs-switch__label * {
+  line-height: 1;
+  font-size: 14px;
+  display: inline-block;
+}
+.hs-switch__input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  margin: 0;
+}
+.hs-switch__core {
+  margin: 0;
+  position: relative;
+  width: 40px;
+  height: 20px;
+  border: 1px solid #dcdfe6;
+  outline: 0;
+  border-radius: 10px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #dcdfe6;
+  -webkit-transition: border-color 0.3s, background-color 0.3s;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+.hs-switch__core:after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  border-radius: 100%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+}
+.hs-switch.is-checked .hs-switch__core {
+  border-color: #409eff;
+  background-color: #409eff;
+}
+.hs-switch.is-checked .hs-switch__core::after {
+  left: 100%;
+  margin-left: -17px;
+}
+.hs-switch.is-disabled {
+  opacity: 0.6;
+}
+.hs-switch--wide .hs-switch__label.hs-switch__label--left span {
+  left: 10px;
+}
+.hs-switch--wide .hs-switch__label.hs-switch__label--right span {
+  right: 10px;
+}
+.hs-switch .label-fade-enter,
+.hs-switch .label-fade-leave-active {
+  opacity: 0;
+}
