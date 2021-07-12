@@ -1,11 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { IStack } from './modules/stick-message'
 
 Vue.use(Vuex)
 
 export interface IRootState {
-  stack: IStack
 }
 
 // Declare empty store first, dynamically register all modules later.

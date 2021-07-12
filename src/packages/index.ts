@@ -32,6 +32,7 @@ import Select from './select'
 import Alert from './alert'
 import Steps from './steps'
 import Dropdown from './dropdown'
+import Echart from './echart'
 import Frame from './frame'
 import Coverlap from './coverlap'
 
@@ -60,6 +61,7 @@ const components: { [propsName: string]: any } = {
   ...Tooltip,
   ...Rate,
   ...Collapse,
+  ...Echart,
   ...Link,
   ...Tabs,
   ...Carousel,

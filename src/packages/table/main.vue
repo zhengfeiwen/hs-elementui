@@ -132,7 +132,6 @@ import HsTag from '@/packages/tag/main.vue'
 import HsRadio from '@/packages/radio/main.vue'
 import FileSaver from 'file-saver'
 import XLSX from 'xlsx'
-import { StickMessageModule } from '@/store/modules/stick-message'
 import { random } from '@/utils/commons'
 @Component({
   name: 'hs-table',
@@ -459,10 +458,6 @@ export default class HsTable extends Vue {
       confirmButtonText: '确定',
       type: 'warning'
     }).then(() => {
-      // this.exportStack.id = random()
-      // this.exportStack.state = 1
-      // StickMessageModule.init(this.exportStack)
-      console.log(StickMessageModule.stacks)
       if (this.exportData) {
         this.exportData(this.export)
       } else {
@@ -495,8 +490,6 @@ export default class HsTable extends Vue {
           `${this.exportName}.xlsx`
         )
         this.exportStack.state = 2
-        StickMessageModule.update(this.exportStack)
-        console.log(StickMessageModule.stacks)
       } catch (e) {
         if (typeof console !== 'undefined') { console.log(e, wbout) }
       }

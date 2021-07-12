@@ -1,6 +1,6 @@
 {
   "name": "hs-elementui",
-  "version": "0.2.142",
+  "version": "0.2.146",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
