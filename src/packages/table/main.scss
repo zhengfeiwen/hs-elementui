@@ -17,6 +17,15 @@
     .action-block-left{
       display: flex;
     }
+    .action-block-right{
+      display: flex;
+      .hs-dropdown{
+        margin-left: 10px;
+        .hs-button--mini{
+          font-size: 14px;
+        }
+      }
+    }
   }
   .table-setting{
     width: 100%;

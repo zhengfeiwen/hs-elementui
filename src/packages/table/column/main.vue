@@ -149,7 +149,7 @@ export default class HsTableColumn extends Vue {
   private sortBy!: string|any[]|((row: any, index: any) => string|any[])
 
   @Prop({ type!: Function })
-  private formatter!: (row: object, column: TableColumn) => any
+  private formatter!: (row: object, column: TableColumn, cell: any, event: Event) => any
 
   @Prop({ type!: Boolean, default: !1 })
   private showOverflowTooltip!: boolean

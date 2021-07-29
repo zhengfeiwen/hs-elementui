@@ -1,50 +1,54 @@
 <template>
   <div class="hs-table">
-    <div class="action-block" v-if="$slots['action-block']">
-      <div class="action-block-left"><slot name="action-block"/></div>
-      <div class="export-body" v-if="exportable">
-        <hs-button size="mini" type="primary" @click="exportHandle"><svg-icon style="font-size: 14px;" name="export" />&nbsp;导出</hs-button>
-        <el-table
-          border
-          hidden
-          style="width: 100%"
-          :data="eData||data"
-          :id="id"
-          >
-          <el-table-column v-for="(column, i) in getcolumns" :key="i"
-            :prop="column.prop"
-            :label="column.label"
-            :width="column.width">
-          </el-table-column>
-        </el-table>
+    <div class="action-block">
+      <div class="action-block-left"><slot name="action-block-left"/></div>
+      <div class="action-block-right">
+        <slot name="action-block"/>
+        <div class="export-body" v-if="exportable">
+          <hs-button size="mini" type="primary" @click="exportHandle"><svg-icon style="font-size: 14px;" name="export" />&nbsp;导出</hs-button>
+          <el-table
+            border
+            hidden
+            style="width: 100%"
+            :data="eData||data"
+            :id="id"
+            >
+            <el-table-column v-for="(column, i) in getcolumns" :key="i"
+              :prop="column.prop"
+              :label="column.label"
+              :width="column.width">
+            </el-table-column>
+          </el-table>
+        </div>
+        <hs-dropdown @visible-change="columnVisibleChange" ref="columnDrop" trigger="click" v-if="columnable">
+          <hs-button size="mini">
+            <i class="hs-icon-s-grid" />
+          </hs-button>
+          <hs-dropdown-menu slot="dropdown">
+            <div class="column-container">
+              <header>
+                <span>列设置</span>
+              </header>
+              <section>
+                <el-checkbox :indeterminate="isIndeterminate" v-model="checkAllColumns" @change="handleCheckAllChange">全选</el-checkbox>
+                <el-checkbox-group v-model="checkedColumns" @change="handleCheckedColumnsChange">
+                  <el-checkbox v-for="column in columns" :label="column.prop" :key="column.prop">{{ column.label }}</el-checkbox>
+                </el-checkbox-group>
+              </section>
+              <footer>
+                <hs-link @click="onColumCancel" size="mini">取消</hs-link>
+                <hs-link size="mini" @click="onColumSave" type="primary">确认</hs-link>
+              </footer>
+            </div>
+          </hs-dropdown-menu>
+        </hs-dropdown>
       </div>
-       <hs-dropdown @visible-change="columnVisibleChange" ref="columnDrop" trigger="click" v-if="columnable">
-        <hs-button size="mini">
-          <i class="hs-icon-s-grid" />
-        </hs-button>
-        <hs-dropdown-menu slot="dropdown">
-          <div class="column-container">
-            <header>
-              <span>列设置</span>
-            </header>
-            <section>
-              <el-checkbox :indeterminate="isIndeterminate" v-model="checkAllColumns" @change="handleCheckAllChange">全选</el-checkbox>
-              <el-checkbox-group v-model="checkedColumns" @change="handleCheckedColumnsChange">
-                <el-checkbox v-for="column in columns" :label="column.prop" :key="column.prop">{{ column.label }}</el-checkbox>
-              </el-checkbox-group>
-            </section>
-            <footer>
-              <hs-link @click="onColumCancel" size="mini">取消</hs-link>
-              <hs-link size="mini" @click="onColumSave" type="primary">确认</hs-link>
-            </footer>
-          </div>
-        </hs-dropdown-menu>
-      </hs-dropdown>
     </div>
     <div class="table-setting" v-if="isCheckbox">
       <div class="alert-bolck">
         <i class="hs-icon-info" />
-        <span>{{ '已选择 ' + selectedRow.length + ' 项目' }}</span>
+        <span>{{ '已选择 ' + selectedRow.length + ' 个项目' }}</span>
+        <hs-link v-if="selectShow || $listeners['show-selecteds']" type="primary" style="margin-right: -14px; border-right: 1px solid #000; padding-right: 4px;" @click="showSelecteds">{{showSelectedFlag ? '还原' : '查看' }}</hs-link>
         <hs-link type="primary" @click="clear">清空</hs-link>
       </div>
     </div>
@@ -132,7 +136,6 @@ import HsTag from '@/packages/tag/main.vue'
 import HsRadio from '@/packages/radio/main.vue'
 import FileSaver from 'file-saver'
 import XLSX from 'xlsx'
-import { random } from '@/utils/commons'
 @Component({
   name: 'hs-table',
   components: {
@@ -266,6 +269,9 @@ export default class HsTable extends Vue {
   @Prop({ type: Boolean })
   private lazy!: boolean
 
+  @Prop({ type: Boolean, default: !1 })
+  private selectShow!: boolean
+
   @Prop({ type: Function })
   private exportData!: Function
 
@@ -297,6 +303,13 @@ export default class HsTable extends Vue {
     if (this.$listeners['select-all']) {
       this.$emit('select-all', selection)
     }
+  }
+
+  private showSelectedFlag = !1
+
+  private showSelecteds () {
+    this.showSelectedFlag = !this.showSelectedFlag
+    this.$listeners['show-selecteds'] && this.$emit('show-selecteds', this.selectedRow)
   }
 
   private selectionChange (selection: any, row: any) {
@@ -456,7 +469,8 @@ export default class HsTable extends Vue {
     // this.$stickMessage('11111111')
     this.$confirm('确认要导出数据?（如果导出数据量较大时间会比较久,请耐心等待）', '提示', {
       confirmButtonText: '确定',
-      type: 'warning'
+      type: 'warning',
+      cancelButtonText: '取消'
     }).then(() => {
       if (this.exportData) {
         this.exportData(this.export)
