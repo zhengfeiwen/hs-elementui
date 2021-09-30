@@ -3,7 +3,7 @@
     <div :class="coverlapHomeClass">
       <slot></slot>
     </div>
-    <div :class="coverlapPageClass">
+    <div :class="coverlapPageClass" v-if="coverlap">
       <div class="hs-coverlap_header_back">
         <hs-button type="info" plain size="mini" @click="back">返回</hs-button>
       </div>
@@ -25,6 +25,7 @@ export default class HsCoverlap extends Vue {
 
   private back () {
     this.coverlap = !1
+    this.$listeners.callback && this.$emit('callback')
   }
 
   get coverlapClass () {
@@ -49,12 +50,17 @@ export default class HsCoverlap extends Vue {
   }
 
   public cover (flag: boolean) {
-    this.coverlap = flag
+    if (this.$listeners['before-open']) {
+      this.$emit('before-open', () => {
+        this.coverlap = flag
+      })
+    } else {
+      this.coverlap = flag
+    }
   }
 
   mounted () {
     const cBtn = document.getElementById('coverlap-btn')
-    console.log(cBtn)
     if (cBtn) {
       cBtn.addEventListener('click', () => {
         console.log(this.coverlap, 'this.coverlap')

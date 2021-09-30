@@ -1,4 +1,4 @@
-$transition: .8s;
+$transition: .6s;
 .hs-coverlap-container{
     height: 100%;
     width: 100%;
@@ -18,7 +18,7 @@ $transition: .8s;
   .hs-coverlap_page{
     position: absolute;
     height: calc(100% - 20px);
-    width: calc(100% - 20px);
+    width: 0;
     padding: 10px;
     margin: 10px;
     z-index: 6666;
@@ -29,6 +29,7 @@ $transition: .8s;
     background-color: #fff;
     &.shown{
       opacity: 1;
+      width: calc(100% - 20px);
       transition: $transition;
       left: 0;
     }
