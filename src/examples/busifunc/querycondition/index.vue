@@ -73,7 +73,6 @@ export default class DrawerDemo extends Vue {
   }
 
   private change (data: any, key: string, labels: any) {
-    // do someing
     if (!key) return
     alert(key + '|' + data[key] + '|' + (labels[key] ? labels[key] : ''))
     this.conditions[key].options = [

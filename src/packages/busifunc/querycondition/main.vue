@@ -106,7 +106,7 @@ import HsCascader from '@/packages/cascader/main.vue'
     'hs-cascader': HsCascader
   }
 })
-export default class HsActionline extends Vue {
+export default class HsQuerycondition extends Vue {
   @Prop({ type: Object, required: true })
   public conditions!: any
 

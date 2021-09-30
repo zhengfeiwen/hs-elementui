@@ -35,6 +35,7 @@ import Dropdown from './dropdown'
 import Echart from './echart'
 import Frame from './frame'
 import Coverlap from './coverlap'
+import Querycondition from './busifunc'
 
 const components: { [propsName: string]: any } = {
   ...Navigation,
@@ -71,7 +72,8 @@ const components: { [propsName: string]: any } = {
   ...Steps,
   ...Dropdown,
   ...Frame,
-  ...Coverlap
+  ...Coverlap,
+  ...Querycondition
 }
 
 const install = (vue: typeof Vue, opts: any = {}): void => {

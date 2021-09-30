@@ -1,5 +1,6 @@
 <template>
   <div style="width:100%;height:100%;margin:60px;">
+    <hs-querycondition-demo></hs-querycondition-demo>
      <!-- <hs-progress-demo></hs-progress-demo>
     <hs-upload-demo></hs-upload-demo>
     <hs-tabs-demo></hs-tabs-demo>
@@ -31,6 +32,7 @@
 
 <script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator'
+import Querycondition from './examples/busifunc/querycondition/index.vue'
 // import ProgressDemo from './examples/components/progress/index.vue'
 // import UploadDemo from './examples/components/upload/index.vue'
 // import PluploadDemo from './examples/components/plupload/index.vue'
@@ -76,12 +78,12 @@ import FormDemo from './examples/components/form/index.vue'
     // 'hs-actionline-demo': Actionline,
     // 'hs-datepicker-demo': Datepicker,
     // 'hs-calender-demo': Calender,
-    // 'hs-querycondition-demo': Querycondition,
+    'hs-querycondition-demo': Querycondition,
     // 'hs-layout-demo': Layout,
     // 'hs-link-demo': LinkDemo,
     // 'hs-radio-demo': RadioDemo,
-    'hs-form-demo': FormDemo,
-    'hs-table-demo': Table
+    // 'hs-form-demo': FormDemo,
+    // 'hs-table-demo': Table
     // 'hs-tag-demo': TagDemo,
     // 'hs-chart-demo': EchartDemo,
     // 'hs-draggable-demo': DraggableDemo
